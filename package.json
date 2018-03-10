@@ -1,0 +1,36 @@
+{
+  "name": "sprinter-cli",
+  "version": "1.0.0",
+  "description": "a simple CLI to start a JavaScript project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stop2stare/sprinter-cli.git"
+  },
+  "keywords": [],
+  "author": "liucheng <emitremmus0235@163.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stop2stare/sprinter-cli/issues"
+  },
+  "homepage": "https://github.com/stop2stare/sprinter-cli#readme",
+  "dependencies": {
+    "chalk": "^2.3.2",
+    "commander": "^2.15.0",
+    "fs-extra": "^5.0.0",
+    "inquirer": "^5.1.0",
+    "ora": "^2.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.1.0"
+  }
+}
