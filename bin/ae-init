@@ -15,6 +15,10 @@ const template = args[0]
 const project = args[1]
 // const templatePath = path.resolve(__dirname, '../templates', template)
 
+// paddings
+console.log()
+process.on('exit', () => { console.log() })
+
 run()
 
 async function run() {
