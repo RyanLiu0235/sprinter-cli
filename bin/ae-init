@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
 const path = require('path')
+const fs = require('fs')
+const fse = require('fs-extra')
 const program = require('commander')
 const ora = require('ora')
-const fse = require('fs-extra')
-const fs = require('fs')
 const download = require('download-git-repo')
 const userHome = require('user-home')
+const chalk = require('chalk')
 
 program
   .usage('<template-name> [project-name]')
@@ -37,8 +38,8 @@ async function run() {
   spinner.stop()
   console.log('Project has been initiated successfully!')
   console.log()
-  console.log(`    $ cd ${project} && npm install`)
-  console.log('    $ npm run tdd')
+  console.log(chalk.green(`    $ cd ${project} && npm install`))
+  console.log(chalk.green('    $ npm run tdd'))
 }
 
 function useCachedTemplates(dir, dest) {
