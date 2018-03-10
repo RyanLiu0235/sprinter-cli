@@ -32,7 +32,7 @@ async function run() {
     // use cached templates
     await useCachedTemplates(cacheDir, dest)
   } else {
-    await downloadTemplate(template)
+    await downloadTemplate(template, dest)
   }
   spinner.stop()
   console.log('Project has been initiated successfully!')
@@ -41,7 +41,7 @@ async function run() {
   console.log('    $ npm run tdd')
 }
 
-function useCachedTemplates(dir) {
+function useCachedTemplates(dir, dest) {
   return new Promise((resolve, reject) => {
     fs.access(dir, async function(err) {
       if (err) {
@@ -54,7 +54,7 @@ function useCachedTemplates(dir) {
   })
 }
 
-function downloadTemplate(template) {
+function downloadTemplate(template, dest) {
   return new Promise((resolve, reject) => {
     download(`sprinter-templates/${template}`, dest, err => {
       if (err) {
