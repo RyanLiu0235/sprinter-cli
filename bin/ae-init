@@ -28,6 +28,9 @@ async function run() {
   // await fse.copy(templatePath, path.resolve(process.cwd(), project))
   spinner.stop()
   console.log('Project has been initiated successfully!')
+  console.log()
+  console.log(`    $ cd ${project} && npm install`)
+  console.log('    $ npm run tdd')
 }
 
 function downloadTemplate(template) {
