@@ -4,6 +4,7 @@ const path = require('path')
 const program = require('commander')
 const ora = require('ora')
 const fse = require('fs-extra')
+const download = require('download-git-repo')
 
 program
   .usage('<template-name> [project-name]')
@@ -12,13 +13,23 @@ program
 const args = program.args
 const template = args[0]
 const project = args[1]
-const templatePath = path.resolve(__dirname, '../templates', template)
+// const templatePath = path.resolve(__dirname, '../templates', template)
 
 run()
 
 async function run() {
-  const spinner = ora('writing files')
+  const spinner = ora('Downloading files...')
   spinner.start()
-  await fse.copy(templatePath, path.resolve(process.cwd(), project))
+  await downloadTemplate(template)
+  // await fse.copy(templatePath, path.resolve(process.cwd(), project))
   spinner.stop()
+  console.log('Project has been initiated successfully!')
+}
+
+function downloadTemplate(template) {
+  return new Promise((resolve, reject) => {
+    download(`sprinter-templates/${template}`, path.resolve(process.cwd(), project), err => {
+      err ? reject(err) : resolve()
+    })
+  })
 }
