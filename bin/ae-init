@@ -46,6 +46,8 @@ function useCachedTemplates(dir, dest) {
   return new Promise((resolve, reject) => {
     fs.access(dir, async function(err) {
       if (err) {
+        // if local cache is not available,
+        // download from github repository
         await downloadTemplate(template)
       } else {
         await fse.copy(dir, dest)
